@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* Make html and body full height */
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  font-family: 'Roboto', sans-serif; /* Updated font */
+  background: linear-gradient(to right, #ffffff, #f7f7f7); /* Very mild gradient */
+}
+
+header {
+  background: linear-gradient(to right, #e0f7fa, #f1f8e9); /* Very mild gradient from light cyan to light green */
+  padding: 15px;
+  color: black; /* Fixed typo from 'balck' to 'black' */
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+}
+
+nav {
+  margin-top: 10px; /* Gradient nav */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button.section-btn, #liked-page-btn {
+  background: linear-gradient(to right, #c8e6c9, #a5d6a7); /* Mild green gradient */
+  color: black; /* Changed text color for better visibility */
+  border: none;
+  padding: 12px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+button.section-btn:hover, #liked-page-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #a5d6a7, #c8e6c9); /* Reverse gradient on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  flex: 1; /* Allow the gallery container to grow */
+}
+
+.image-card {
+  background-color: white;
+  margin: 10px;
+  padding: 0;
+  width: calc(33.33% - 20px);
+  max-width: 300px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+@media (max-width: 768px) {
+  .image-card{
+    display: flex;
+    direction: column;
+  }
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heart-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.heart-icon.white {
+  color: white;
+}
+
+.heart-icon.red {
+  color: red;
+}
+.heart-icon:hover {
+  transform: scale(1.2); /* Increase size on hover */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+.details-container {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  z-index: 10;
+  max-width: 90%;
+  width: auto;
+  max-height: calc(100% - 100px);
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.details-container #image-details {
+  display: flex;
+  justify-content: center;
+}
+
+.image-side img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.details-side {
+  margin-left: 20px;
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .image-card {
+    width: calc(50% - 20px); /* Two columns on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-card {
+    width: calc(100% - 20px); /* One column on small screens */
+  }
+}
+#close-details-btn {
+  border: none;
+  background: none;
+  color: #ff0000;
+  padding: 10px;
+  cursor: pointer;
+  float: right;
+  font-size: 24px;
+}
+
+#close-details-btn:hover {
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+footer {
+  background: linear-gradient(to right, #e0f7fa, #f1f8e9); /* Very mild gradient from light cyan to light green */
+  color: black; /* Changed text color for better visibility */
+  text-align: center;
+  padding: 15px 0;
+}
+
+footer a {
+  color: #8bc34a; /* Mild green for links */
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #6fbf6e; /* Slightly darker green on hover */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .image-card {
+    width: calc(50% - 20px); /* Two columns on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-card {
+    width: calc(100% - 20px); /* One column on small screens */
+  }
+}
+
+.details-container h2 {
+  font-size: 22px; /* Base font size */
+  margin: 0 0 10px; /* Margin below the heading */
+  color: #333; /* Darker color for better readability */
+  line-height: 1.2; /* Improve line spacing */
+}
+
+@media (max-width: 600px) {
+  .details-container h2 {
+      font-size: 15px; /* Smaller font size for mobile */
+      padding: 0 15px; /* Add some padding for better spacing */
+  }
+}
