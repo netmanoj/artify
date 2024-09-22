@@ -113,14 +113,15 @@ function toggleLike(image, heartIcon) {
         likedImages = likedImages.filter(img => img.id !== image.id);
         heartElement.classList.remove('red');
         heartElement.classList.add('white');
-        alert('Like removed!'); // Alert message when like is removed
-        // Update liked images display
-        displayLikedImages();
+        alert('Like removed!'); 
     } else {
         likedImages.push(image);
         heartElement.classList.remove('white');
         heartElement.classList.add('red');
     }
+
+    // Update local storage
+    localStorage.setItem('likedImages', JSON.stringify(likedImages));
 }
 
 function toggleDislike(image, card) {
@@ -131,9 +132,13 @@ function toggleDislike(image, card) {
         card.style.border = 'none';
     } else {
         dislikedImages.push(image);
-        card.style.border = '2px solid #ff0000'; // Highlight disliked images
+        card.style.border = '2px solid #ff0000'; 
     }
+
+    // Update local storage
+    localStorage.setItem('dislikedImages', JSON.stringify(dislikedImages));
 }
+
 
 function showImageDetails(image) {
     // Clear previous content
