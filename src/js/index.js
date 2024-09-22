@@ -218,3 +218,34 @@ function displayLikedImages() {
         galleryContainer.appendChild(imageCard); // Append each card to the gallery
     });
 }
+
+
+// Function to show the welcome message with animation
+function showWelcomeMessage() {
+    const welcomeMessage = document.getElementById('welcome-message');
+    
+    // Check if the welcome message has already been shown
+    if (localStorage.getItem('welcomeDisplayed')) {
+        return; // Exit if already displayed
+    }
+
+    // Show the message immediately
+    welcomeMessage.classList.remove('hidden'); // Remove hidden class
+    setTimeout(() => {
+        welcomeMessage.classList.add('show'); // Add show class to trigger fade-in
+    }, 100); // Short delay for better effect
+
+    // Hide the message after a few seconds
+    setTimeout(() => {
+        welcomeMessage.classList.remove('show'); // Fade out
+        setTimeout(() => {
+            welcomeMessage.classList.add('hidden'); // Hide completely
+        }, 500); // Wait for fade-out to finish
+    }, 1000); // Show for 1 s
+
+    // Set a flag in localStorage to indicate the message has been displayed
+    localStorage.setItem('welcomeDisplayed', 'true');
+}
+
+// Call the function when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', showWelcomeMessage);

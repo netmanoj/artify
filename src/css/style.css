@@ -209,3 +209,28 @@ footer a:hover {
       padding: 0 15px; /* Add some padding for better spacing */
   }
 }
+
+.welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Solid black background */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 9999; /* Make sure it appears above other content */
+}
+
+.welcome.show {
+  opacity: 1; /* Fade in effect */
+}
+
+.hidden {
+  display: none; /* Hides the element */
+}
