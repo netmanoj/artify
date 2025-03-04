@@ -3,51 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artify - Art Gallery</title>
+    <link rel="stylesheet" href="src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <title>Artify Gallery</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Artify Gallery</h1>
+        <h1>Artify</h1>
         <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search for images..." aria-label="Search images">
-            <button id="search-btn" aria-label="Search">
-                <i class="fas fa-search"></i>
-            </button>
+            <input type="text" id="search-input" placeholder="Search for artwork...">
+            <button id="search-btn">Search</button>
         </div>
         <nav>
             <button class="section-btn active" data-section="explore">Explore</button>
-            <button class="section-btn" data-section="modern">Modern Art</button>
+            <button class="section-btn" data-section="modern">Modern</button>
             <button class="section-btn" data-section="sculptures">Sculptures</button>
             <button class="section-btn" data-section="classics">Classics</button>
-            <button id="liked-page-btn">Liked Images</button>
+            <button id="liked-page-btn">Liked</button>
             <button id="collections-btn">Collections</button>
-            <a href="landing.html" class="section-btn home-btn">
-                <i class="fas fa-home"></i> Home
-            </a>
         </nav>
     </header>
 
-    
-    <main class="gallery-container" id="gallery-container"></main>
+    <main>
+        <div id="gallery-container" class="gallery-container"></div>
+    </main>
 
-    <div class="loading-indicator" id="loading-indicator">
-        <i class="fas fa-spinner fa-spin"></i> Loading more images...
-    </div>
-
-    <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <div class="details-container" id="details-container">
-        <button id="close-details-btn" aria-label="Close details">
+    <!-- Details Modal -->
+    <div id="details-container" class="details-container">
+        <button id="close-details-btn" class="close-modal-btn">
             <i class="fas fa-times"></i>
         </button>
-        <div id="image-details">
-            <div class="image-side" id="image-side"></div>
-            <div class="details-side" id="details-side"></div>
+        <div class="details-content-wrapper">
+            <div id="image-side" class="image-side"></div>
+            <div id="details-side" class="details-side"></div>
         </div>
     </div>
 
@@ -86,6 +75,23 @@
         </div>
     </div>
 
+    <!-- Welcome Message -->
+    <div id="welcome-message" class="welcome hidden">
+        <h1>Welcome to Artify!</h1>
+        <p>Discover and collect beautiful artwork</p>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="loading-indicator">
+        Loading more images...
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top-btn" class="scroll-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Confirmation Alert -->
     <div class="confirmation-alert" id="unlike-confirmation" style="display: none;">
         <h3>Remove from Liked Images?</h3>
         <p>Are you sure you want to remove this image from your liked collection?</p>
@@ -97,15 +103,13 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Artify Gallery | All Rights Reserved</p>
-            <p>
-                <a href="https://github.com/netmanoj/artify" target="_blank">
-                    <i class="fab fa-github"></i> Visit GitHub Repository
-                </a>
-            </p>
+            <p>Made with ❤️ by Artify</p>
+            <a href="https://unsplash.com" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Powered by Unsplash
+            </a>
         </div>
     </footer>
 
-    <script src="js/index.js"></script>
+    <script src="src/js/index.js"></script>
 </body>
-</html>
+</html> 
